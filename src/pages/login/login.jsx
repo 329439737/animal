@@ -5,7 +5,7 @@ import PropTpes from 'prop-types'
 import style from './login.module.scss'
 import axios from 'axios'
 import './../../mock/mock'
-
+import { SetSeeion } from './../../assets/img/unit/com.js'
 import Loading from '././../loading/loading'
 import { Row, Form, Input, Button, message } from 'antd'
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons'
@@ -41,6 +41,7 @@ export default class Login extends Component {
 
         if (data.code === 10000) {
           if (data.message.name === val.name && data.message.password === val.password) {
+            SetSeeion('setinfo', 'mytoken')
             this.setTime()
           } else {
             message.error('账号或密码不正确')

@@ -1,7 +1,7 @@
 import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom'
 import Home from './pages/home/home'
 import Login from './pages/login/login'
-
+import { GetSeeion } from './assets/img/unit/com.js'
 function App () {
   return (
     <div >
@@ -11,14 +11,15 @@ function App () {
               exact
               path='/'
               render={props => {
-                const token = 11
+                const token = GetSeeion('setinfo')
                 return token ? <Redirect to='/admin/info' /> : <Login {...props} />
               }}
             />
 
           <Route path='/admin'
           render={props => {
-            return <Home {...props}></Home>
+            const token = GetSeeion('setinfo')
+            return token ? <Home {...props}></Home> : <Redirect to='/'></Redirect>
           }}
           >
 
