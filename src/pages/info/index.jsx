@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
 import { Card, Row, Input, Button, Empty, message } from 'antd'
 import style from './index.module.scss'
+import { DownOutlined, PieChartOutlined, DesktopOutlined, FileOutlined, UserOutlined, TeamOutlined, createFromIconfontCN } from '@ant-design/icons';
 import axios from 'axios'
-export default class index extends Component {
+import Loading from './../loading/loading'
+import { IconFont } from './../../iconfont/index'
+import { connect } from 'react-redux'
+import { addnum } from './../../redux/action'
+import Ccard from './../../components/card'
+import PropTpes from 'prop-types'
+class Index extends Component {
+  static propTypes = {
+    // dispatch: PropTpes.func
+    // num: PropTpes.number
+  }
+
   state={
     datalist: [],
     no: 0,
-    count: 0
+    count: 0,
+    loading: true
   }
 
   componentDidMount () {
@@ -22,7 +35,8 @@ export default class index extends Component {
       if (res.data.status === 0) {
         this.setState({
           datalist: res.data.message,
-          count: 0
+          count: 0,
+          loading: false
         })
       } else {
         message.error(res.data.message)
@@ -40,24 +54,16 @@ export default class index extends Component {
     })
   }
 
-  // getbutton
-  getbutton=() => {
-    const { no } = this.state
-
-    this.getimg()
-  }
-
   render () {
-    const { datalist, count } = this.state
+    const { datalist, count, loading } = this.state
+
     return (
       <div>
-           <Row>
 
-                  <Card style={{ width: '100%' }}><span style={{ color: 'red', fontWeight: 'bold' }}>最新公告：</span>
-                  <span> 宠物之家正式上线了~</span>
-                  </Card>
-
-           </Row>
+             {
+               loading ? <Loading></Loading> : null
+             }
+           <Ccard h1title={'最新公告'} h2title={'宠物之家正式上线了~'}></Ccard>
 
            <Card style={{ marginTop: '15PX' }}>
              <Row>
@@ -87,3 +93,9 @@ export default class index extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return state;
+}
+
+export default connect(mapStateToProps)(Index)

@@ -5,12 +5,12 @@ $logo:'./../../assets/img/animal.png';
   flex: 1;
   align-items: center;
   justify-content: center;
-  height: 63px;
+  height: 44px;
 
 }
 .div_logo{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-image: url($logo);
   background-size: cover;
 }
@@ -21,7 +21,17 @@ $logo:'./../../assets/img/animal.png';
 }
 
 .header{
+  height: 44px;
   background: #fff;
   border-color: #E6E6E6;
   border: none;
+}
+
+.headerBar {
+  position: relative;
+  padding: 0px 15px;
+  height: 44px;
+  line-height: 44px;
+  width: 100%;
+  background-color: #ffffff;
 }

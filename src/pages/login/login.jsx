@@ -22,7 +22,7 @@ export default class Login extends Component {
   }
 
   onFinish = (values) => {
-    console.log('valu', values)
+
   };
 
   setTime = () => {

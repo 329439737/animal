@@ -16,7 +16,7 @@ function App () {
               }}
             />
 
-          <Route path='/admin'
+         <Route path='/admin'
           render={props => {
             const token = GetSeeion('setinfo')
             return token ? <Home {...props}></Home> : <Redirect to='/'></Redirect>

@@ -9,3 +9,9 @@ export const SetSeeion = (key, value) => {
 export const GetSeeion = (key) => {
   return window.localStorage.getItem(key)
 }
+
+// 清楚token
+
+export const ClearSeeion = (key) => {
+  return window.localStorage.removeItem(key)
+}

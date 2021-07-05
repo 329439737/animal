@@ -1,4 +1,5 @@
 import Mock from 'mockjs'
+import { DownOutlined, PieChartOutlined, DesktopOutlined, FileOutlined, UserOutlined, TeamOutlined } from '@ant-design/icons';
 
 Mock.setup({
   timeout: 100

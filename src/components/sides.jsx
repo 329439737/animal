@@ -16,7 +16,7 @@ export default class sides extends Component {
   };
 
   componentDidMount () {
-    console.log(this.props.history)
+
   }
 
   // onOpenChange
@@ -29,7 +29,6 @@ export default class sides extends Component {
 
 // 跳转路由
 getrouter = (index) => {
-  console.log(index)
   this.setState({
     selectedKeys: [index.keyc]
   }, this.props.history.push(index.path))
